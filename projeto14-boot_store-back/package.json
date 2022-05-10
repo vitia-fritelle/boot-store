@@ -1,0 +1,94 @@
+{
+  "name": "projeto14-bootstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node ./src/index.js",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix --ext .js",
+    "prettier": "prettier --check **/*.js",
+    "prettier:fix": "prettier --write **/*.js",
+    "dev": "nodemon --experimental-specifier-resolution=node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitia-fritelle/boot-store"
+  },
+  "keywords": [],
+  "collaborators": [
+    {
+      "name": "Vitor Guilherme Coutinho de Barros Junior",
+      "email": "vitorjunior@poli.ufrj.br",
+      "url": "https://github.com/vitia-fritelle"
+    },
+    {
+      "name": "Thales Gomes Targino",
+      "email": "thalestargino@gmail.com",
+      "url": "https://github.com/thalesgomest"
+    }
+  ],
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/vitia-fritelle/boot-store/issues"
+  },
+  "homepage": "https://github.com/vitia-fritelle/boot-store#readme",
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false
+    },
+    "plugins": [
+      "prettier",
+      "security",
+      "node"
+    ],
+    "root": true,
+    "rules": {
+      "no-prototype-builtins": "off",
+      "no-undef": "off"
+    }
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.4.0",
+    "helmet": "^5.0.2",
+    "joi": "^17.6.0",
+    "mongodb": "^4.5.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-security": "^1.5.0",
+    "lint-staged": "^12.4.1",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "useTabs": true,
+    "semi": true,
+    "bracketSpacing": false,
+    "bracketSameLine": true
+  }
+}
