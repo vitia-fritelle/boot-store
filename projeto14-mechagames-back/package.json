@@ -69,6 +69,7 @@
     "express-rate-limit": "^6.4.0",
     "helmet": "^5.0.2",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.5.0",
     "uuid": "^8.3.2"
   },

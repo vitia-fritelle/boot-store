@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import {MongoClient} from "mongodb";
 import app from "./app";
 import config from "./config";
 
