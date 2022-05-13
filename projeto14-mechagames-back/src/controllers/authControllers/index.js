@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import {validateLogin} from "../../services/authServices";
+import {validateLogin, validateSignUp} from "../../services/authServices";
 import config from "../../config";
 
 export const login = async (req, res, next) => {
