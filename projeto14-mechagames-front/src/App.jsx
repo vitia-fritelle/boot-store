@@ -1,3 +1,5 @@
 export default () => {
-	return <h1>Já podemos começar a codar!</h1>;
+	return (
+		<h1>Já podemos começar a codar!</h1>
+	);
 };
