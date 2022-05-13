@@ -1,5 +1,5 @@
-import {createGlobalStyle} from "styled-components";
-import reset from "styled-reset";
+import {createGlobalStyle} from 'styled-components';
+import reset from 'styled-reset';
 
 export default createGlobalStyle`
     ${reset}
@@ -7,8 +7,9 @@ export default createGlobalStyle`
         box-sizing: border-box;
         text-decoration: none;
     }
-    htlm, body, #root {
+    html, body, #root {
         height: 100vh;
         width: 100vw;
+        font-family: 'Poppins', sans-serif;
     }
 `;

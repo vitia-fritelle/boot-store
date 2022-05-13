@@ -1,3 +1,14 @@
+import GlobalStyle from "./styles/GlobalStyles.jsx";
+import SignUp from "./pages/SignUp";
+import {Routes, Route} from "react-router-dom";
+
 export default () => {
-	return <h1>Já podemos começar a codar!</h1>;
+	return (
+		<>
+			<GlobalStyle />
+			<Routes>
+				<Route path="sign-up" element={<SignUp />} />
+			</Routes>
+		</>
+	);
 };
