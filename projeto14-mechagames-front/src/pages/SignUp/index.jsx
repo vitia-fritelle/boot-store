@@ -45,7 +45,7 @@ export default () => {
 			classNameLoading: 'input-disabled',
 		});
 
-		const URL = `http://localhost:5000/sign-up`;
+		const URL = `http://localhost:5000/auth/sign-up`;
 
 		axios
 			.post(URL, {
