@@ -1,6 +1,6 @@
 import { CustomError } from "../utils";
 
-export const handleErrors = (err, _, res, next) => {
+export const handleErrors = (err, _, res) => {
     
     if (err instanceof CustomError) {
         return res.status(err.statusCode).send(err.message);
