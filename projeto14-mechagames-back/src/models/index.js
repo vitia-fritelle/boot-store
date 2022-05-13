@@ -1,4 +1,5 @@
 import {signUpSchema} from "../validations";
+import {CustomError} from "./../utils";
 
 export const categories = ["consoles", "acessórios", "jogos"];
 
@@ -8,7 +9,7 @@ export const User = function (name, email, password, confirmpassword = "") {
 	this.password = password;
 	const confirmPassword = confirmpassword;
 
-	signUpSchema.validate(
+	const validation = signUpSchema.validate(
 		{name, email, password, confirmPassword},
 		{abortEarly: false}
 	);
