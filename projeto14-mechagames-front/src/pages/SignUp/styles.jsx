@@ -5,7 +5,7 @@ const SignUpContainer = styled.div`
 `;
 
 const SignUpContainerLeft = styled.div`
-	width: 50%;
+	width: 50vw;
 	height: 100vh;
 	background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
 	display: flex;
@@ -19,7 +19,7 @@ const SignUpContainerLeft = styled.div`
 `;
 
 const SignUpContainerRight = styled.div`
-	width: 50%;
+	width: 50vw;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
