@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
-import mongo from '../../..';
-import { LoginSchema } from '../../../validations';
-import { CustomError } from '../../../utils';
+import mongo from '../..';
+import { LoginSchema } from '../../validations';
+import { CustomError } from '../../utils';
 
 export const validateLogin = async ({email, password}) => {
     

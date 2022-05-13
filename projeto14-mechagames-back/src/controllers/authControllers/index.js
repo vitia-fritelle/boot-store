@@ -6,7 +6,7 @@ export const login = async (req,res,next) => {
     
     try {
         const { email, password } = req.body;
-        const validation = await validateLogin({ email, password });
+        await validateLogin({ email, password });
         const configurations = { expiresIn: 60*60 };
         const token = jwt.sign({ email }, config.secret_key, configurations);
         return res.status(200).json({ token });
