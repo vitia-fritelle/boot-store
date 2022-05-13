@@ -5,6 +5,7 @@ import compression from "compression";
 import cors from "cors";
 import helmet from "helmet";
 import routes from "../routes";
+import {handleErrors} from "../middlewares";
 
 const app = express();
 
@@ -16,4 +17,5 @@ app.use(cors());
 app.use(routes);
 app.set("case sensitive routing", false);
 app.set("strict routing", false);
+app.use(handleErrors);
 export default app;
