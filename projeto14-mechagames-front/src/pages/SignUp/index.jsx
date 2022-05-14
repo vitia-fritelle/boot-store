@@ -12,7 +12,7 @@ import {
 } from './styles';
 import MechaGamesLogo from './../../assets/images/mecha-games-logo.svg';
 import ImagePageAuth from './../../assets/images/image-screen-auth.svg';
-import { Button } from '../../components/authComponents';
+import {Button} from '../../components/authComponents';
 
 export default () => {
 	const [data, setData] = useState({
@@ -33,8 +33,7 @@ export default () => {
 
 		const URL = `/auth/sign-up`;
 
-		(
-			singUpAxios
+		singUpAxios
 			.post(URL, {
 				name: data.name,
 				email: data.email,
@@ -50,23 +49,38 @@ export default () => {
 						'Sign Up error! Check your credentials and try again',
 					err,
 				});
-			}).finally(() => {
-				setDataLoading(false);
 			})
-		);
+			.finally(() => {
+				setDataLoading(false);
+			});
 	};
 
 	const arePasswordsEqual = () => data.confirmPassword === data.password;
 	const isConfirmPasswordEmpty = () => data.confirmPassword === '';
 	const isButtonDisabled = () => {
-		if((!isConfirmPasswordEmpty()) && arePasswordsEqual()) {
+		if (!isConfirmPasswordEmpty() && arePasswordsEqual()) {
 			setButtonDisabled(false);
 		} else {
 			setButtonDisabled(true);
-		};
-	}
+		}
+	};
+	const borderIsRed = () => {
+		if (arePasswordsEqual() && dataLoading) {
+			return 'input_disabled';
+		} else if (
+			!arePasswordsEqual() &&
+			!dataLoading &&
+			data.confirmPassword.length > 0
+		) {
+			return 'error_password';
+		} else if (!arePasswordsEqual() && dataLoading) {
+			return 'error_password input_disabled';
+		} else {
+			return '';
+		}
+	};
 
-	useEffect(isButtonDisabled,[data.password,data.confirmPassword]);
+	useEffect(isButtonDisabled, [data.password, data.confirmPassword]);
 
 	return (
 		<SignUpContainer>
@@ -84,7 +98,7 @@ export default () => {
 						<input
 							type="text"
 							disabled={dataLoading}
-							className={dataLoading?'input-disabled':''}
+							className={dataLoading ? 'input-disabled' : ''}
 							placeholder="Nome"
 							required
 							value={data.name}
@@ -98,11 +112,11 @@ export default () => {
 						<input
 							type="email"
 							disabled={dataLoading}
-							className={dataLoading?'input-disabled':''}
+							className={dataLoading ? 'input-disabled' : ''}
 							placeholder="E-mail"
 							required
 							value={data.email}
-							onChange={(e) => 
+							onChange={(e) =>
 								setData({...data, email: e.target.value})
 							}
 						/>
@@ -112,7 +126,7 @@ export default () => {
 						<input
 							type="password"
 							disabled={dataLoading}
-							className={dataLoading?'input-disabled':''}
+							className={dataLoading ? 'input-disabled' : ''}
 							placeholder="Senha"
 							required
 							value={data.password}
@@ -129,7 +143,7 @@ export default () => {
 						<input
 							type="password"
 							disabled={dataLoading}
-							className={dataLoading?'input-disabled error_password':''}
+							className={borderIsRed()}
 							placeholder="Confirme a senha"
 							required
 							value={data.confirmPassword}
@@ -153,4 +167,3 @@ export default () => {
 		</SignUpContainer>
 	);
 };
-
