@@ -14,7 +14,7 @@ export default () => {
 	const [productData, setProductData] = useState({});
 
 	const pageProduct = () => {
-		const URL = `/products/${idProduct}`;
+		const URL = `/product/${idProduct}`;
 
 		pageProductsAxios
 			.get(URL)
