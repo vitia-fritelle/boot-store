@@ -1,12 +1,17 @@
-import {Router} from "express";
-import authRoute from "./authRoutes";
+import {Router} from 'express';
+import authRoute from './authRoutes';
+import productRoute from './productRoutes';
 
 const router = Router();
 
 const routes = [
 	{
-		path: "/auth",
+		path: '/auth',
 		route: authRoute,
+	},
+	{
+		path: '/products',
+		route: productRoute,
 	},
 ];
 

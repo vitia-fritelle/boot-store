@@ -4,7 +4,7 @@ export const ProductPage = async (req, res, next) => {
 	const {idProduct} = req.params;
 
 	try {
-		const product = validateProductPage(idProduct);
+		const product = await validateProductPage(idProduct);
 		res.status(200).json(product);
 	} catch (e) {
 		next(e);

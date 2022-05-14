@@ -1,8 +1,8 @@
 import {Router} from 'express';
-import {ProductPage} from '../../controllers/authControllers';
+import {ProductPage} from '../../controllers/productControllers';
 
 const router = Router();
 
-router.get('/products/:idProduct', ProductPage);
+router.get('/:idProduct', ProductPage);
 
 export default router;

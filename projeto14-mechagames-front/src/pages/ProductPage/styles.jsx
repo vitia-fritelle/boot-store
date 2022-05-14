@@ -41,6 +41,11 @@ export const ProductInfoContainer = styled.div`
 		border: none;
 		margin-top: 46px;
 	}
+
+	img {
+		width: 340px;
+		height: 352px;
+	}
 `;
 
 export const ProductDescriptionContainer = styled.div`

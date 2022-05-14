@@ -1,16 +1,17 @@
 import mongo from '../..';
 import {CustomError} from '../../utils';
+import {ObjectId} from 'mongodb';
 
 export const validateProductPage = async (idProduct) => {
 	try {
-		const product = mongo
+		const product = await mongo
 			.db('mecha-games')
 			.collection('products')
-			.findOne({_id: idProduct});
-		if (!product) {
-			throw new CustomError(404, 'Not found', 'product not found');
-		} else {
+			.findOne({_id: new ObjectId(idProduct)});
+		if (product) {
 			return product;
+		} else {
+			throw new CustomError(404, 'Not found', 'product not found');
 		}
 	} catch (e) {
 		if (e instanceof CustomError) {
@@ -19,7 +20,7 @@ export const validateProductPage = async (idProduct) => {
 			throw new CustomError(
 				401,
 				'Unauthorized',
-				'Error validate Product Page'
+				'Error validate product page'
 			);
 		}
 	}
