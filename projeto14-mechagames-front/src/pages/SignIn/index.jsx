@@ -1,56 +1,38 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import axios from 'axios';
+import {MdOutlineLock} from 'react-icons/md';
+import {FiMail} from 'react-icons/fi';
+import signInAxios from '../../adapters';
+import { Button } from '../../components/authComponents';
 import {
 	SignInContainer,
 	SignInContainerLeft,
 	SignInContainerRight,
 	Form,
 } from './styles';
-import {BiUserCircle} from 'react-icons/bi';
-import {FiMail} from 'react-icons/fi';
-import {SpinnerInfinity} from 'spinners-react';
-
 import MechaGamesLogo from './../../assets/images/mecha-games-logo.svg';
 import ImagePageAuth from './../../assets/images/image-screen-auth.svg';
 
 export default () => {
 	const [data, setData] = useState({
-		name: '',
 		email: '',
+		password: '',
 	});
-
-	const [dataLoading, setDataLoading] = useState({
-		loading: false,
-		classNameLoading: '',
-	});
-
+	const [dataLoading, setDataLoading] = useState(false);
 	const navigate = useNavigate();
 
 	const signIn = (e) => {
 		e.preventDefault();
-
-		setDataLoading({
-			...dataLoading,
-			loading: true,
-			classNameLoading: 'input-disabled',
-		});
-
-		const URL = `http://localhost:5000/auth/login`;
-
-		axios
+		setDataLoading(true);
+		const URL = `/auth/login`;
+		(
+			signInAxios
 			.post(URL, {
-				name: data.name,
 				email: data.email,
-				password: data.password,
-				confirmPassword: data.confirmPassword,
+				password: data.password
 			})
-			.then(() => {
-				setDataLoading({
-					...dataLoading,
-					loading: false,
-					classNameLoading: '',
-				});
+			.then((res) => {
+				console.log(res.data);
 				navigate('/');
 			})
 			.catch((err) => {
@@ -59,12 +41,11 @@ export default () => {
 						'Sign Up error! Check your credentials and try again',
 					err,
 				});
-				setDataLoading({
-					...dataLoading,
-					loading: false,
-					classNameLoading: '',
-				});
-			});
+				
+			}).finally(() => {
+				setDataLoading(false);
+			})
+		);
 	};
 
 	return (
@@ -78,24 +59,10 @@ export default () => {
 				<Form onSubmit={signIn}>
 					<div className="input_container">
 						<input
-							type="text"
-							disabled={dataLoading.loading}
-							className={dataLoading.classNameLoading}
-							placeholder="Nome"
-							required
-							value={data.name}
-							onChange={(e) =>
-								setData({...data, name: e.target.value})
-							}
-						/>
-						<BiUserCircle className="icon_input" />
-					</div>
-					<div className="input_container">
-						<input
 							type="email"
-							disabled={dataLoading.loading}
-							className={dataLoading.classNameLoading}
-							placeholder="E-mail"
+							disabled={dataLoading}
+							className={dataLoading?'input-disabled':''}
+							placeholder="Email"
 							required
 							value={data.email}
 							onChange={(e) =>
@@ -104,16 +71,23 @@ export default () => {
 						/>
 						<FiMail className="icon_input" />
 					</div>
-					{dataLoading.loading === false ? (
-						<button type="submit">Sign in now</button>
-					) : (
-						<button type="button" disabled>
-							<SpinnerInfinity
-								color="rgba(255, 255, 255, 1)"
-								size="70"
-							/>
-						</button>
-					)}
+					<div className="input_container">
+						<input
+							type="password"
+							disabled={dataLoading}
+							className={dataLoading?'input-disabled':''}
+							placeholder="Insira a sua senha"
+							required
+							value={data.password}
+							onChange={(e) =>
+								setData({...data, password: e.target.value})
+							}
+						/>
+						<MdOutlineLock className="icon_input" />
+					</div>
+					<Button isLoading={dataLoading} isDisabled={false}>
+						Sign in now
+					</Button>
 				</Form>
 				<Link to="/sign-up">
 					<p>Don't have a account? Sign up now!</p>
