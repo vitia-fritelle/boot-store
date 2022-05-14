@@ -1,4 +1,4 @@
-import { CustomError } from "../utils";
+import {CustomError} from "./../utils";
 
 export const handleErrors = (err, _, res, _next) => {
     
