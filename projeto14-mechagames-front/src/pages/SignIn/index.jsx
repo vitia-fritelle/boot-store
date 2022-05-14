@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {MdOutlineLock} from 'react-icons/md';
 import {FiMail} from 'react-icons/fi';
@@ -13,7 +13,7 @@ import {
 import MechaGamesLogo from './../../assets/images/mecha-games-logo.svg';
 import ImagePageAuth from './../../assets/images/image-screen-auth.svg';
 
-export default () => {
+export default ({setToken}) => {
 	const [data, setData] = useState({
 		email: '',
 		password: '',
@@ -31,9 +31,10 @@ export default () => {
 				email: data.email,
 				password: data.password
 			})
-			.then((res) => {
-				console.log(res.data);
-				navigate('/');
+			.then(({data}) => {
+				setToken(data.token);
+				localStorage.setItem('user',data.token);
+				navigate('/',{replace: true});
 			})
 			.catch((err) => {
 				console.log({
@@ -47,6 +48,14 @@ export default () => {
 			})
 		);
 	};
+
+	useEffect(() => {
+		const token = localStorage.getItem('user');
+		if(token) {
+			setToken(token);
+			navigate('/',{replace: true});
+		}
+	});
 
 	return (
 		<SignInContainer>
