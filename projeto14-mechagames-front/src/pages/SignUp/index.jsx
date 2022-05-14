@@ -160,7 +160,7 @@ export default () => {
 						Sign up now
 					</Button>
 				</Form>
-				<Link to="/">
+				<Link to="/sign-in">
 					<p>Already have a account? Sign in</p>
 				</Link>
 			</SignUpContainerRight>
