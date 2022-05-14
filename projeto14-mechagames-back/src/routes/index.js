@@ -10,7 +10,7 @@ const routes = [
 		route: authRoute,
 	},
 	{
-		path: '/products',
+		path: '/product',
 		route: productRoute,
 	},
 ];
