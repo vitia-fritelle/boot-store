@@ -1,6 +1,6 @@
 import GlobalStyle from './styles/GlobalStyles.jsx';
 import SignUp from './pages/SignUp';
-// import SignIn from './pages/SignIn';
+import SignIn from './pages/SignIn';
 import {Routes, Route} from 'react-router-dom';
 
 export default () => {
@@ -8,7 +8,7 @@ export default () => {
 		<>
 			<GlobalStyle />
 			<Routes>
-				{/* <Route path="/" element={<SignIn />} /> */}
+				<Route path="/" element={<SignIn />} />
 				<Route path="sign-up" element={<SignUp />} />
 			</Routes>
 		</>

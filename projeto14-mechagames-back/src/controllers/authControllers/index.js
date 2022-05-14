@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import {validateLogin, validateSignUp} from "../../services/authServices";
+import {validateLogin} from "../../services/authServices";
 import {User} from "../../models";
 import config from "../../config";
 
