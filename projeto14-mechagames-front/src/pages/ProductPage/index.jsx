@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import pageProductsAxios from '../../adapters';
-import ProductImage from './../../assets/images/product-image.svg';
 import Header from '../../components/mainComponents/Header';
 import {
 	ProductPageContainer,

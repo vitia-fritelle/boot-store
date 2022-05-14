@@ -5,13 +5,13 @@ export const ProductPageContainer = styled.div`
 	height: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 `;
 
 export const ProductInfoContainer = styled.div`
 	text-align: center;
 	width: 566px;
 	height: 540px;
-	margin-left: 160px;
 
 	h1 {
 		font-family: 'Poppins';
