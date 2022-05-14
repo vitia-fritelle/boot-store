@@ -16,6 +16,10 @@ export const validateLogin = async ({email, password}) => {
             throw new CustomError(401,"Unauthorized","email not found");
         }
     } catch (e) {
-        throw new CustomError(401,"Unauthorized","LoginSchema password=");
+        if(e instanceof CustomError) {
+            throw e;
+        } else {
+            throw new CustomError(401,"Unauthorized","LoginSchema password=");
+        }
     }
 };
