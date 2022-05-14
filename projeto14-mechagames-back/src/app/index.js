@@ -8,14 +8,13 @@ import routes from "../routes";
 import {handleErrors} from "../middlewares";
 
 const app = express();
-
-app.use(helmet());
-app.use(json());
-app.use(mongoSanitize());
-app.use(compression());
-app.use(cors());
-app.use(routes);
 app.set("case sensitive routing", false);
 app.set("strict routing", false);
+app.use(helmet());
+app.use(compression());
+app.use(json());
+app.use(mongoSanitize());
+app.use(cors());
+app.use(routes);
 app.use(handleErrors);
 export default app;
