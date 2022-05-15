@@ -34,11 +34,20 @@ export default () => {
 
 	const addToCart = () => {
 		const cart = JSON.parse(localStorage.getItem('usercart'));
+		const newProductCart = {
+			_id: productData._id,
+			name: productData.name,
+			value: productData.value,
+			quantity: '',
+		};
 		if (cart) {
-			cart.push(productData);
+			cart.products.push(newProductCart);
 			localStorage.setItem('usercart', JSON.stringify(cart));
 		} else {
-			localStorage.setItem('usercart', JSON.stringify([productData]));
+			localStorage.setItem(
+				'usercart',
+				JSON.stringify({products: [newProductCart]})
+			);
 		}
 	};
 
