@@ -1,9 +1,9 @@
 import ProductImage from '../../../assets/images/product-image.svg';
 import {ProductCheckoutContainer} from './styles';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
-export default () => {
-	const [inputValue, setInputValue] = useState(0);
+export default ({name, image, value, products, setProducts, identifier}) => {
+	const [inputValue, setInputValue] = useState(1);
 
 	function handlePlus() {
 		setInputValue((prevState) => prevState + 1);
@@ -15,13 +15,24 @@ export default () => {
 		}
 	}
 
-	console.log(inputValue);
+	useEffect(() => {
+		setProducts({
+			...products,
+			[`${identifier}`]: {
+				name,
+				image,
+				value,
+				quantity: inputValue.toString(),
+			},
+		});
+	}, [inputValue]);
+
 	return (
 		<>
 			<ProductCheckoutContainer>
-				<img src={ProductImage} alt="product-image" />
-				<h1>God of War Collector's Edition</h1>
-				<p>R$ 100,00</p>
+				<img src={image} alt="product-image" />
+				<h1>{name}</h1>
+				<p>R${value}</p>
 				<div className="input-checkout">
 					<button className="button-minus" onClick={handleMinus}>
 						-
