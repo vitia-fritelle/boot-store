@@ -95,6 +95,6 @@
 		"semi": true,
 		"bracketSpacing": false,
 		"bracketSameLine": true,
-		"singleQuote": false
+		"singleQuote": true
 	}
 }
