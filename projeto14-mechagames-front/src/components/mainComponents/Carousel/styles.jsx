@@ -51,4 +51,11 @@ export const Container = styled.div`
             transform: translateX(-15px);
         }
     }
-    `;
+`;
+
+export const DivContainer = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`;
