@@ -15,7 +15,7 @@ export default () => {
 				<Route path="/" element={<Home />} />
 				<Route
 					path="/sign-in"
-					element={<SignIn token={token} setToken={setToken} />}
+					element={<SignIn setToken={setToken} />}
 				/>
 				<Route path="/sign-up" element={<SignUp />} />
 			</Routes>
