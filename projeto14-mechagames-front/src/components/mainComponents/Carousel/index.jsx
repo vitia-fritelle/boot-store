@@ -1,24 +1,34 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
+import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
 import homeAxios from "../../../adapters";
-import { Wrapper } from "./styles";
+import {Container, Wrapper} from "./styles";
 import ProductCard from "./ProductCard";
 
 export default () => {
 
     const [products, setProducts] = useState([]);
-
+    const [page, setPage] = useState(0);
 
     useEffect(() => {
-        const promise = homeAxios.get('/product?limit=6');
+        const promise = homeAxios.get('/product');
         promise.then(({data}) => setProducts(data));
-    },[products]);
+    },[]);
+
+    const increasePage = () => setPage(page+1);
+    const decreasePage = () => setPage(page-1);
 
     return (
-        <>
+        <Container>
+            {
+                page !== 0 
+                && <IoIosArrowBack 
+                        className='arrow-left' 
+                        onClick={decreasePage}/>
+            }
             <Wrapper>
                 {
                     products.length > 0
-                    ?products.map(({image,name,value,_id}) => { 
+                    ?products.slice(page*6,6*(page+1)).map(({image,name,value,_id}) => { 
                         return(
                             <li key={_id}>
                                 <ProductCard
@@ -32,6 +42,12 @@ export default () => {
                     :''
                 }
             </Wrapper>
-        </>
+            {
+                page !== Math.floor(products.length/6) 
+                && <IoIosArrowForward 
+                        className='arrow-right' 
+                        onClick={increasePage}/>
+            }
+        </Container>
     );
 };

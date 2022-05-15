@@ -42,13 +42,18 @@ export const Li = styled.li`
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 19px;
         line-height: 30px;
 
         text-align: center;
 
         color: #FFFFFF;
         z-index: 2;
+        transition: font-size 0.1s;
+
+        &:hover{
+            font-size: 22px;
+        }   
     }
 `;
 
