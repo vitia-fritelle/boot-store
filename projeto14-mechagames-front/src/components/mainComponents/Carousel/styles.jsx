@@ -17,4 +17,38 @@ export const Container = styled.div`
         height: 200px;
         cursor: pointer;
     }
-`;
+    .arrow-right {
+        animation: bounce-right 2s ease infinite;
+    }
+    @keyframes bounce-right {
+        0%, 25%, 55%, 75%, 100%{
+            transform: translateX(20px);
+        }
+        45%{
+            transform: translateX(0px);
+        }
+        65%{
+            transform: translateX(10px);
+        }
+        85%{
+            transform: translateX(15px);
+        }
+    }
+    .arrow-left {
+        animation: bounce-left 2s ease infinite;
+    }
+    @keyframes bounce-left {
+        0%, 25%, 55%, 75%, 100%{
+            transform: translateX(-20px);
+        }
+        45%{
+            transform: translateX(0px);
+        }
+        65%{
+            transform: translateX(-10px);
+        }
+        85%{
+            transform: translateX(-15px);
+        }
+    }
+    `;
