@@ -40,7 +40,7 @@ export default () => {
 			<TypeProductPageContainer>
 				<h2>
 					{typeProduct === 'acessórios'
-						? 'Acessórios & Periférios'
+						? 'Acessories & Peripherals'
 						: typeProduct}
 				</h2>
 				<ProductsContainer>

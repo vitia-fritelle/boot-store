@@ -16,6 +16,7 @@ export const StyledHeader = styled.header`
 		flex-flow: row nowrap;
 		justify-content: center;
 		align-items: center;
+		cursor: pointer;
 		img {
 			height: 112px;
 			margin-right: 22px;
@@ -32,7 +33,6 @@ export const StyledHeader = styled.header`
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 			background-clip: text;
-			text-fill-color: transparent;
 		}
 	}
 
