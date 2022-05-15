@@ -1,38 +1,32 @@
-import {VscCircleFilled, VscCircleOutline} from 'react-icons/vsc';
+import { VscCircleFilled, VscCircleOutline } from 'react-icons/vsc';
 
-const DotIndicator = ({num,position,setPosition}) => {
-
+const DotIndicator = ({ num, position, setPosition }) => {
     const setSlide = () => setPosition(num);
     if (num === position) {
         return (
-            <VscCircleFilled 
-                className="dots" 
+            <VscCircleFilled
+                className="dots"
                 size={30}
-                style={{cursor: 'pointer'}}/>
-        );
-    } else {
-        return (
-            <VscCircleOutline 
-                className="dots" 
-                onClick={setSlide} 
-                size={30}
-                style={{cursor: 'pointer'}}/>
+                style={{ cursor: 'pointer' }}/>
         );
     }
-}
-export default ({position,setPosition,slides}) => {
     return (
-        <div>
-            {
-                slides.map((_,index) => 
-                    <DotIndicator 
-                        num={index} 
-                        position={position} 
-                        setPosition={setPosition} 
-                        key={index}
-                        />
-                )
-            }
-        </div>
+        <VscCircleOutline
+            className="dots"
+            onClick={setSlide}
+            size={30}
+            style={{ cursor: 'pointer' }}/>
     );
-}
+};
+export default ({ position, setPosition, slides }) => (
+    <div>
+        {
+            slides.map((_, index) => <DotIndicator
+                num={index}
+                position={position}
+                setPosition={setPosition}
+                key={index}
+            />)
+        }
+    </div>
+);

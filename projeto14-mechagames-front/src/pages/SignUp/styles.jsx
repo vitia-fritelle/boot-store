@@ -202,4 +202,6 @@ const Form = styled.form`
 	}
 `;
 
-export {SignUpContainer, SignUpContainerLeft, SignUpContainerRight, Form};
+export {
+    SignUpContainer, SignUpContainerLeft, SignUpContainerRight, Form,
+};
