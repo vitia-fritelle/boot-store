@@ -1,15 +1,14 @@
-import {validateProductPage} from '../../services/productServices';
-import {findProducts} from '../../services/productServices';
+import { validateProductPage, findProducts } from '../../services/productServices';
 
 export const ProductPage = async (req, res, next) => {
-	const {idProduct} = req.params;
+    const { idProduct } = req.params;
 
-	try {
-		const product = await validateProductPage(idProduct);
-		res.status(200).json(product);
-	} catch (e) {
-		next(e);
-	}
+    try {
+        const product = await validateProductPage(idProduct);
+        res.status(200).json(product);
+    } catch (e) {
+        next(e);
+    }
 };
 
 /**
@@ -22,11 +21,11 @@ export const ProductPage = async (req, res, next) => {
  * sort = "asc", "desc"
  */
 export const getProducts = async (req, res, next) => {
-	try {
-		const {limit, type, sort} = req.query;
-		const products = await findProducts(type, sort, parseInt(limit,10));
-		res.status(200).json(products);
-	} catch (e) {
-		next(e);
-	}
+    try {
+        const { limit, type, sort } = req.query;
+        const products = await findProducts(type, sort, parseInt(limit, 10));
+        res.status(200).json(products);
+    } catch (e) {
+        next(e);
+    }
 };

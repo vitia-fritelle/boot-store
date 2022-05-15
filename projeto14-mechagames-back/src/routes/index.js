@@ -17,7 +17,7 @@ const routes = [
     {
         path: '/chart',
         route: sessionRoute,
-    }
+    },
 ];
 
 routes.forEach(({ path, route }) => router.use(path, route));
