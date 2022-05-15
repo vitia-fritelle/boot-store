@@ -4,6 +4,7 @@ import GlobalStyle from './styles/GlobalStyles.jsx';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Home from './pages/Home';
+import CheckoutPage from './pages/CheckoutPage';
 import UserContext from './contexts/userContext';
 
 export default () => {
@@ -18,6 +19,7 @@ export default () => {
 					element={<SignIn setToken={setToken} />}
 				/>
 				<Route path="/sign-up" element={<SignUp />} />
+				<Route path="/checkout" element={<CheckoutPage />} />
 			</Routes>
 		</UserContext.Provider>
 	);
