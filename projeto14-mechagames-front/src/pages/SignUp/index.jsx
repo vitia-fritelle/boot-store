@@ -41,7 +41,7 @@ export default () => {
 				confirmPassword: data.confirmPassword,
 			})
 			.then(() => {
-				navigate('/');
+				navigate('/sign-in');
 			})
 			.catch((err) => {
 				console.log({

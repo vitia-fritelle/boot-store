@@ -26,14 +26,10 @@ export const ProductsContainer = styled.div`
 	display: flex;
 	margin-left: 110px;
 	margin-top: 50px;
+	gap: 10px;
 `;
 
 export const ProductContainer = styled.div`
-	margin-right: 10px;
-	margin-bottom: 10px;
-	:nth-child(4n) {
-		margin-right: 0;
-	}
 	display: flex;
 	text-align: center;
 	flex-direction: column;
