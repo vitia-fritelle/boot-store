@@ -32,6 +32,16 @@ export default () => {
 		pageProduct();
 	}, []);
 
+	const addToCart = () => {
+		const cart = JSON.parse(localStorage.getItem('usercart'));
+		if (cart) {
+			cart.push(productData);
+			localStorage.setItem('usercart', JSON.stringify(cart));
+		} else {
+			localStorage.setItem('usercart', JSON.stringify([productData]));
+		}
+	};
+
 	return (
 		<>
 			<Header />
@@ -40,10 +50,10 @@ export default () => {
 					<img src={productData.image} alt="Product" />
 					<h1>{productData.name}</h1>
 					<p>R${parseFloat(productData.value).toFixed(2)}</p>
-					<button>Adicionar ao carrinho</button>
+					<button onClick={() => addToCart()}>Add to cart</button>
 				</ProductInfoContainer>
 				<ProductDescriptionContainer>
-					<h2>Descrição do Produto</h2>
+					<h2>Product Description</h2>
 					<p>{productData.description}</p>
 				</ProductDescriptionContainer>
 			</ProductPageContainer>
