@@ -33,6 +33,7 @@
 		"eslint": "^8.15.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-react": "^7.29.4",
 		"lint-staged": "^12.4.1",
 		"prettier": "^2.6.2"
 	},
@@ -49,7 +50,10 @@
 	"eslintConfig": {
 		"rules": {
 			"import/no-anonymous-default-export": "off",
-			"indent": ["error", 4]
+			"indent": [
+				"error",
+				4
+			]
 		},
 		"parserOptions": {
 			"sourceType": "module",
@@ -59,14 +63,14 @@
 			}
 		},
 		"extends": [
-			"prettier",
-			"eslint:recommended"
+			"prettier"
 		],
 		"ignorePatterns": [
 			"node_modules/"
 		],
 		"plugins": [
-			"prettier"
+			"prettier",
+			"react"
 		]
 	},
 	"browserslist": {
