@@ -82,7 +82,7 @@ export default ({setToken}) => {
 							type="text"
 							disabled={dataLoading}
 							className={dataLoading ? 'input-disabled' : ''}
-							placeholder="Email"
+							placeholder="E-mail"
 							required
 							value={data.email}
 							ref={inputEmail}
@@ -97,7 +97,7 @@ export default ({setToken}) => {
 							type="password"
 							disabled={dataLoading}
 							className={dataLoading ? 'input-disabled' : ''}
-							placeholder="Insira a sua senha"
+							placeholder="Isert your password"
 							required
 							value={data.password}
 							ref={inputPass}

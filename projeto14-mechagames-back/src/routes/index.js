@@ -7,22 +7,22 @@ import checkoutRoute from './checkoutRoutes';
 const router = Router();
 
 const routes = [
-    {
-        path: '/auth',
-        route: authRoute,
-    },
-    {
-        path: '/product',
-        route: productRoute,
-    },
-    {
-        path: '/cart',
-        route: sessionRoute,
-    },
-    {
-        path: '/checkout',
-        route: checkoutRoute,
-    },
+	{
+		path: '/auth',
+		route: authRoute,
+	},
+	{
+		path: '/product',
+		route: productRoute,
+	},
+	{
+		path: '/cart',
+		route: sessionRoute,
+	},
+	{
+		path: '/checkout',
+		route: checkoutRoute,
+	},
 ];
 
 routes.forEach(({ path, route }) => router.use(path, route));

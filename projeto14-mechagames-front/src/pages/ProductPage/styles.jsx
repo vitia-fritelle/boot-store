@@ -75,3 +75,14 @@ export const ProductDescriptionContainer = styled.div`
 		line-height: 25px;
 	}
 `;
+
+export const ButtonReturn = styled.div`
+	margin-top: 20px;
+	margin-left: 50px;
+	cursor: pointer;
+	.back-button {
+		height: 50px;
+		width: 50px;
+		color: #44c3fd;
+	}
+`;

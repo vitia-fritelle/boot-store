@@ -64,12 +64,12 @@
 				}
 			],
 			"indent": [
-				"error",
 				4
 			]
 		}
 	},
 	"dependencies": {
+		"@sendgrid/mail": "^7.6.2",
 		"bcryptjs": "^2.4.3",
 		"compression": "^1.7.4",
 		"connect-mongo": "^4.6.0",
@@ -101,7 +101,7 @@
 		"tabWidth": 4,
 		"useTabs": true,
 		"semi": true,
-		"bracketSpacing": false,
+		"bracketSpacing": true,
 		"bracketSameLine": true,
 		"singleQuote": true
 	}
