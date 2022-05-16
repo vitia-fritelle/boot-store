@@ -11,7 +11,6 @@ import {
 import ProductCheckout from '../../components/mainComponents/ProductCheckout';
 
 export default () => {
-
 	const navigate = useNavigate();
 	const {token} = useContext(userContext);
 	const [total, setTotal] = useState(0);
@@ -53,15 +52,16 @@ export default () => {
 		};
 
 		const body = {
-			products
-		}
+			products,
+		};
 
-		console.log(body)
+		console.log(body);
 
 		CheckoutAxios.post(URL, body, config)
 			.then((response) => {
-				navigate('/');
 				localStorage.removeItem('usercart');
+				navigate('/');
+				alert('Your order has been sent!');
 			})
 			.catch((err) => {
 				console.log(err);
@@ -88,7 +88,7 @@ export default () => {
 	};
 
 	useEffect(() => {
-		totalCalculator(); 
+		totalCalculator();
 	}, [products]);
 	useEffect(() => {
 		productsCart();
@@ -112,7 +112,9 @@ export default () => {
 						<h2>
 							TOTAL: <span>R${total}</span>
 						</h2>
-						<button onClick={purchasesCart}>Confirmar Compra</button>
+						<button onClick={purchasesCart}>
+							Confirmar Compra
+						</button>
 					</div>
 				</div>
 			</CheckoutContainer>

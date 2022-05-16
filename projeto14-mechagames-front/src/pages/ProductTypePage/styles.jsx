@@ -58,3 +58,14 @@ export const ProductContainer = styled.div`
 		color: #666666;
 	}
 `;
+
+export const ButtonReturn = styled.div`
+	margin-top: 20px;
+	margin-left: 50px;
+	cursor: pointer;
+	.back-button {
+		height: 50px;
+		width: 50px;
+		color: #44c3fd;
+	}
+`;

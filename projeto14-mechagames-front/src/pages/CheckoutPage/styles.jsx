@@ -11,6 +11,7 @@ export const CheckoutContainer = styled.div`
 		font-weight: 600;
 		font-size: 30px;
 		color: #ffffff;
+		cursor: pointer;
 	}
 	.confirm_checkout {
 		width: 400px;
