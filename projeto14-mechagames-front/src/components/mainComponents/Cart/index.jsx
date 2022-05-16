@@ -77,7 +77,7 @@ export default ({setFlag}) => {
                         );
                     })}
                 </StyledList>
-                {buttonFlag && <CartButton onClick={() => navigate('/checkout')}>Checkout</CartButton>}
+                {buttonFlag && token && <CartButton onClick={() => navigate('/checkout')}>Checkout</CartButton>}
             </StyledAside>
         </StyledContainer>
     );
