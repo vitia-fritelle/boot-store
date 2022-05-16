@@ -5,14 +5,14 @@ import {BiSearch} from 'react-icons/bi';
 import {GiShoppingCart} from 'react-icons/gi';
 import MechaGamesLogo from '../../../assets/images/mecha-games-logo.svg';
 import Controllers from '../../../assets/images/controllers.svg';
-import Chart from "../Cart/index.jsx";
+import Cart from "../Cart";
 
 export default () => {
     const navigate = useNavigate();
     const [flag, setFlag] = useState(false);
     return (
         <>  
-            {flag && <Chart setFlag={setFlag}/>}
+            {flag && <Cart setFlag={setFlag}/>}
             <StyledHeader >
                 <div className="brand" onClick={() => navigate('/')}>
                     <img
