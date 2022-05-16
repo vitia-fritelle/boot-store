@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {MdOutlineLock} from 'react-icons/md';
 import {FiMail} from 'react-icons/fi';
@@ -20,7 +20,9 @@ export default ({setToken}) => {
 	});
 	const [dataLoading, setDataLoading] = useState(false);
 	const navigate = useNavigate();
-
+	const inputEmail = useRef(null);
+	const inputPass = useRef(null);
+	const [errorState, setErrorState] = useState({msg:''});
 	const signIn = (e) => {
 		e.preventDefault();
 		setDataLoading(true);
@@ -36,24 +38,35 @@ export default ({setToken}) => {
 				navigate('/', {replace: true});
 			})
 			.catch((err) => {
-				console.log({
-					message:
-						'Sign Up error! Check your credentials and try again',
-					err,
-				});
+				setErrorState({msg:err.response.data})
+			})
+			.finally(() => {
+				setDataLoading(false);
 			})
 			.finally(() => {
 				setDataLoading(false);
 			});
 	};
+	const moveToInput = (element) => {
 
+		element.current.setSelectionRange(0,0);
+		element.current.focus();
+	};
 	useEffect(() => {
 		const token = localStorage.getItem('user');
 		if (token) {
 			setToken(token);
 			navigate('/', {replace: true});
 		}
-	});
+	},[]);
+
+	useEffect(() => {
+		if (errorState.msg === 'email not found') {
+			moveToInput(inputEmail);
+		} else if (errorState.msg === 'LoginSchema password=') {
+			moveToInput(inputPass);
+		}
+	},[errorState]);
 
 	return (
 		<SignInContainer>
@@ -66,12 +79,13 @@ export default ({setToken}) => {
 				<Form onSubmit={signIn}>
 					<div className="input_container">
 						<input
-							type="email"
+							type="text"
 							disabled={dataLoading}
 							className={dataLoading ? 'input-disabled' : ''}
 							placeholder="Email"
 							required
 							value={data.email}
+							ref={inputEmail}
 							onChange={(e) =>
 								setData({...data, email: e.target.value})
 							}
@@ -86,6 +100,7 @@ export default ({setToken}) => {
 							placeholder="Insira a sua senha"
 							required
 							value={data.password}
+							ref={inputPass}
 							onChange={(e) =>
 								setData({...data, password: e.target.value})
 							}
