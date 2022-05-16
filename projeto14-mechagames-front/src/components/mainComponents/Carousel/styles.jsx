@@ -62,3 +62,8 @@ export const Container = styled.div`
 		}
 	}
 `;
+export const DivContainer = styled.div`
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+`;

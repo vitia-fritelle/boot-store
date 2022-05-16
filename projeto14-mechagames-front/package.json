@@ -31,7 +31,6 @@
 		"@testing-library/react": "^13.2.0",
 		"@testing-library/user-event": "^13.5.0",
 		"eslint": "^8.15.0",
-		"eslint-config-airbnb-base": "^15.0.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.0.0",
 		"lint-staged": "^12.4.1",
@@ -49,7 +48,8 @@
 	},
 	"eslintConfig": {
 		"rules": {
-			"import/no-anonymous-default-export": "off"
+			"import/no-anonymous-default-export": "off",
+			"indent": ["error", 4]
 		},
 		"parserOptions": {
 			"sourceType": "module",
@@ -59,10 +59,14 @@
 			}
 		},
 		"extends": [
-			"prettier"
+			"prettier",
+			"eslint:recommended"
 		],
 		"ignorePatterns": [
 			"node_modules/"
+		],
+		"plugins": [
+			"prettier"
 		]
 	},
 	"browserslist": {
