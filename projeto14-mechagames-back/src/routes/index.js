@@ -21,8 +21,8 @@ const routes = [
     },
     {
         path: '/checkout',
-        route: checkoutRoute
-    }
+        route: checkoutRoute,
+    },
 ];
 
 routes.forEach(({ path, route }) => router.use(path, route));

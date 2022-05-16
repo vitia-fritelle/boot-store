@@ -1,6 +1,6 @@
 import savePurchase from '../../services/purchaseServices';
 
-export default finishPurchase = async (req, res, next) => {
+const finishPurchase = async (req, res, next) => {
     try {
         const token = (
             req
@@ -10,7 +10,7 @@ export default finishPurchase = async (req, res, next) => {
                 .trim()
         );
         if (typeof token === 'string') {
-            const {products} = req.body;
+            const { products } = req.body;
             await savePurchase(products, token);
             res.sendStatus(204);
         } else {
@@ -24,3 +24,5 @@ export default finishPurchase = async (req, res, next) => {
         next(e);
     }
 };
+
+export default finishPurchase;
