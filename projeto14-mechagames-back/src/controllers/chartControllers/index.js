@@ -1,7 +1,7 @@
 import validateEmail from '../../services/chartServices';
 import CustomError from '../../utils';
 
-export default async (req, res, next) => {
+export const updateChart = async (req, res, next) => {
     try {
         const token = (
             req
@@ -27,6 +27,29 @@ export default async (req, res, next) => {
                     "Couldn't find user's e-mail",
                 );
             }
+        } else {
+            throw new CustomError(
+                403,
+                'Forbidden',
+                "Client didn't send token",
+            );
+        }
+    } catch (e) {
+        next(e);
+    }
+};
+
+export const getChart = async (req, res, next) => {
+    try {
+        const token = (
+            req
+                .headers
+                .authorization
+                ?.replace('Bearer', '')
+                .trim()
+        );
+        if (token) {
+            res.status(200).send(req.sessions.chart);
         } else {
             throw new CustomError(
                 403,
