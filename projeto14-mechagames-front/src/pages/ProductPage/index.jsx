@@ -36,9 +36,10 @@ export default () => {
 		const cart = JSON.parse(localStorage.getItem('usercart'));
 		const newProductCart = {
 			_id: productData._id,
+			image: productData.image,
 			name: productData.name,
 			value: productData.value,
-			quantity: '',
+			quantity: '1',
 		};
 		if (cart) {
 			cart.products.push(newProductCart);
