@@ -13,20 +13,7 @@ export default () => {
 	const {token} = useContext(userContext);
 
 	const [total, setTotal] = useState(0);
-	const [products, setProducts] = useState({
-		product1: {
-			image: 'https://i.ibb.co/QCKFkkG/simulator-console.png',
-			name: 'Cadeira Gamer',
-			value: '1000',
-			quantity: '1',
-		},
-		product2: {
-			image: 'https://i.ibb.co/QCKFkkG/simulator-console.png',
-			name: 'God of War',
-			value: '2500',
-			quantity: '1',
-		},
-	});
+	const [products, setProducts] = useState({});
 
 	const totalCalculator = () => {
 		let total = 0;
