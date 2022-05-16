@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { MdOutlineLock } from 'react-icons/md';
-import { FiMail } from 'react-icons/fi';
+import {useState, useEffect, useContext} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import {MdOutlineLock} from 'react-icons/md';
+import {FiMail} from 'react-icons/fi';
 import signInAxios from '../../adapters';
 import { Button } from '../../components/authComponents';
 import {
@@ -10,10 +10,10 @@ import {
     SignInContainerRight,
     Form,
 } from './styles';
-import MechaGamesLogo from '../../assets/images/mecha-games-logo.svg';
-import ImagePageAuth from '../../assets/images/image-screen-auth.svg';
+import MechaGamesLogo from './../../assets/images/mecha-games-logo.svg';
+import ImagePageAuth from './../../assets/images/image-screen-auth.svg';
 
-export default ({ setToken }) => {
+export default ({setToken}) => {
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -25,33 +25,35 @@ export default ({ setToken }) => {
         e.preventDefault();
         setDataLoading(true);
         const URL = '/auth/login';
-        signInAxios
-            .post(URL, {
-                email: data.email,
-                password: data.password,
-            })
-            .then(({ data }) => {
-                setToken(data.token);
-                localStorage.setItem('user', data.token);
-                navigate('/', { replace: true });
-            })
-            .catch((err) => {
-                console.log({
-                    message:
+        (
+            signInAxios
+                .post(URL, {
+                    email: data.email,
+                    password: data.password
+                })
+                .then(({data}) => {
+                    setToken(data.token);
+                    localStorage.setItem('user',data.token);
+                    navigate('/',{replace: true});
+                })
+                .catch((err) => {
+                    console.log({
+                        message:
 						'Sign Up error! Check your credentials and try again',
-                    err,
-                });
-            })
-            .finally(() => {
-                setDataLoading(false);
-            });
+                        err,
+                    });
+				
+                }).finally(() => {
+                    setDataLoading(false);
+                })
+        );
     };
 
     useEffect(() => {
         const token = localStorage.getItem('user');
-        if (token) {
+        if(token) {
             setToken(token);
-            navigate('/', { replace: true });
+            navigate('/',{replace: true});
         }
     });
 
@@ -68,11 +70,12 @@ export default ({ setToken }) => {
                         <input
                             type="email"
                             disabled={dataLoading}
-                            className={dataLoading ? 'input-disabled' : ''}
+                            className={dataLoading?'input-disabled':''}
                             placeholder="Email"
                             required
                             value={data.email}
-                            onChange={(e) => setData({ ...data, email: e.target.value })
+                            onChange={(e) =>
+                                setData({...data, email: e.target.value})
                             }
                         />
                         <FiMail className="icon_input" />
@@ -81,20 +84,19 @@ export default ({ setToken }) => {
                         <input
                             type="password"
                             disabled={dataLoading}
-                            className={dataLoading ? 'input-disabled' : ''}
+                            className={dataLoading?'input-disabled':''}
                             placeholder="Insira a sua senha"
                             required
                             value={data.password}
-                            onChange={(e) => setData({ ...data, password: e.target.value })
+                            onChange={(e) =>
+                                setData({...data, password: e.target.value})
                             }
                         />
                         <MdOutlineLock className="icon_input" />
                     </div>
-                    <Link to="/">
-                        <Button isLoading={dataLoading} isDisabled={false}>
-							Sign in now
-                        </Button>
-                    </Link>
+                    <Button isLoading={dataLoading} isDisabled={false}>
+						Sign in now
+                    </Button>
                 </Form>
                 <Link to="/sign-up">
                     <p>Don't have a account? Sign up now!</p>

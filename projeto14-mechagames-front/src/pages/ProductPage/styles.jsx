@@ -40,6 +40,7 @@ export const ProductInfoContainer = styled.div`
 		color: #ffffff;
 		border: none;
 		margin-top: 46px;
+		cursor: pointer;
 	}
 
 	img {

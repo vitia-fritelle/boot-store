@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../../contexts/userContext';
 import Header from '../../components/mainComponents/Header';
@@ -11,9 +11,14 @@ import Accessories from '../../assets/images/accessories.svg';
 import Consoles from '../../assets/images/consoles.svg';
 
 export default () => {
-    const user = useContext(UserContext);
-    console.log(user.token);
+    const {token, setToken} = useContext(UserContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!token) {
+            setToken(localStorage.getItem('user'))
+        }
+    },[]);
     return (
         <>
             <Header />
