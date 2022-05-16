@@ -50,6 +50,7 @@ export default () => {
 	// 			console.log(err);
 	// 		});
 	// };
+
 	const printaProdutos = () => {
 		const lista = [];
 		for (const product in products) {
