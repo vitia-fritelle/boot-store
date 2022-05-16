@@ -1,4 +1,5 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+import userContext from '../../contexts/userContext';
 import Header from '../../components/mainComponents/Header';
 import CheckoutAxios from '../../adapters';
 import {
@@ -9,6 +10,8 @@ import {
 import ProductCheckout from '../../components/mainComponents/ProductCheckout';
 
 export default () => {
+	const {token} = useContext(userContext);
+
 	const [total, setTotal] = useState(0);
 	const [products, setProducts] = useState({
 		product1: {
@@ -35,21 +38,22 @@ export default () => {
 		setTotal(total);
 	};
 
-	useEffect(() => {
-		totalCalculator(), [products];
-	});
+	const productsCart = () => {
+		const URL = '/cart';
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
 
-	// const productsCart = () => {
-	// 	// const URL
-
-	// 	CheckoutAxios.get('/cart/products')
-	// 		.then(({data}) => {
-	// 			setProducts(data);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		});
-	// };
+		CheckoutAxios.get(URL, config)
+			.then(({data}) => {
+				setProducts(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
 	const printaProdutos = () => {
 		const lista = [];
@@ -68,6 +72,13 @@ export default () => {
 		}
 		return lista;
 	};
+
+	useEffect(() => {
+		totalCalculator(), [products];
+	});
+	useEffect(() => {
+		productsCart(), [];
+	});
 
 	return (
 		<>
