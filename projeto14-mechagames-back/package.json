@@ -41,7 +41,8 @@
 	"eslintConfig": {
 		"extends": [
 			"eslint:recommended",
-			"prettier"
+			"prettier",
+			"airbnb-base"
 		],
 		"parser": "@babel/eslint-parser",
 		"parserOptions": {
@@ -55,23 +56,34 @@
 		"root": true,
 		"rules": {
 			"no-prototype-builtins": "off",
-			"no-undef": "off"
+			"no-undef": "off",
+			"no-unused-vars": [
+				"error",
+				{
+					"argsIgnorePattern": "^next$"
+				}
+			],
+			"indent": [
+				"error",
+				4
+			]
 		}
 	},
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
 		"compression": "^1.7.4",
+		"connect-mongo": "^4.6.0",
 		"cors": "^2.8.5",
 		"dayjs": "^1.11.1",
 		"dotenv": "^16.0.0",
 		"express": "^4.18.1",
 		"express-mongo-sanitize": "^2.2.0",
 		"express-rate-limit": "^6.4.0",
+		"express-session": "^1.17.3",
 		"helmet": "^5.0.2",
 		"joi": "^17.6.0",
 		"jsonwebtoken": "^8.5.1",
-		"mongodb": "^4.5.0",
-		"uuid": "^8.3.2"
+		"mongodb": "^4.5.0"
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.17.0",
@@ -91,6 +103,6 @@
 		"semi": true,
 		"bracketSpacing": false,
 		"bracketSameLine": true,
-		"singleQuote": false
+		"singleQuote": true
 	}
 }

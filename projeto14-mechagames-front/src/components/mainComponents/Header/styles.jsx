@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const StyledHeader = styled.header`
 	width: 100%;
 	height: 143px;
@@ -16,6 +17,7 @@ export const StyledHeader = styled.header`
 		flex-flow: row nowrap;
 		justify-content: center;
 		align-items: center;
+		cursor: pointer;
 		img {
 			height: 112px;
 			margin-right: 22px;
@@ -57,7 +59,7 @@ export const StyledHeader = styled.header`
 		}
 	}
 	.fixed_image {
-		height: 100px;
+		height: 300px;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -80,4 +82,72 @@ export const HeaderButton = styled.button`
 	border-radius: 40px;
 	background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
 	z-index: 2;
+	&:hover {
+		animation: mar alternate 1.5s infinite;
+	}
+	@keyframes mar {
+		0% {
+			background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
+		}
+		5% {
+			background: linear-gradient(90deg, #1a2980 10%, #26d0ce 100%);
+		}
+		10% {
+			background: linear-gradient(90deg, #1a2980 20%, #26d0ce 100%);
+		}
+		15% {
+			background: linear-gradient(90deg, #1a2980 30%, #26d0ce 100%);
+		}
+		20% {
+			background: linear-gradient(90deg, #1a2980 40%, #26d0ce 100%);
+		}
+		25% {
+			background: linear-gradient(90deg, #1a2980 50%, #26d0ce 100%);
+		}
+		30% {
+			background: linear-gradient(90deg, #1a2980 60%, #26d0ce 100%);
+		}
+		35% {
+			background: linear-gradient(90deg, #1a2980 70%, #26d0ce 100%);
+		}
+		40% {
+			background: linear-gradient(90deg, #1a2980 80%, #26d0ce 100%);
+		}
+		45% {
+			background: linear-gradient(90deg, #1a2980 90%, #26d0ce 100%);
+		}
+		50% {
+			background: linear-gradient(90deg, #1a2980 100%, #26d0ce 100%);
+		}
+		55% {
+			background: linear-gradient(90deg, #1a2980 90%, #26d0ce 100%);
+		}
+		60% {
+			background: linear-gradient(90deg, #1a2980 80%, #26d0ce 100%);
+		}
+		65% {
+			background: linear-gradient(90deg, #1a2980 70%, #26d0ce 100%);
+		}
+		70% {
+			background: linear-gradient(90deg, #1a2980 60%, #26d0ce 100%);
+		}
+		75% {
+			background: linear-gradient(90deg, #1a2980 50%, #26d0ce 100%);
+		}
+		80% {
+			background: linear-gradient(90deg, #1a2980 40%, #26d0ce 100%);
+		}
+		85% {
+			background: linear-gradient(90deg, #1a2980 30%, #26d0ce 100%);
+		}
+		90% {
+			background: linear-gradient(90deg, #1a2980 20%, #26d0ce 100%);
+		}
+		95% {
+			background: linear-gradient(90deg, #1a2980 10%, #26d0ce 100%);
+		}
+		100% {
+			background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
+		}
+	}
 `;

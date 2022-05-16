@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import {MdOutlineLock} from 'react-icons/md';
 import {FiMail} from 'react-icons/fi';
 import signInAxios from '../../adapters';
-import { Button } from '../../components/authComponents';
+import {Button} from '../../components/authComponents';
 import {
 	SignInContainer,
 	SignInContainerLeft,
@@ -25,16 +25,15 @@ export default ({setToken}) => {
 		e.preventDefault();
 		setDataLoading(true);
 		const URL = `/auth/login`;
-		(
-			signInAxios
+		signInAxios
 			.post(URL, {
 				email: data.email,
-				password: data.password
+				password: data.password,
 			})
 			.then(({data}) => {
 				setToken(data.token);
-				localStorage.setItem('user',data.token);
-				navigate('/',{replace: true});
+				localStorage.setItem('user', data.token);
+				navigate('/', {replace: true});
 			})
 			.catch((err) => {
 				console.log({
@@ -42,18 +41,17 @@ export default ({setToken}) => {
 						'Sign Up error! Check your credentials and try again',
 					err,
 				});
-				
-			}).finally(() => {
-				setDataLoading(false);
 			})
-		);
+			.finally(() => {
+				setDataLoading(false);
+			});
 	};
 
 	useEffect(() => {
 		const token = localStorage.getItem('user');
-		if(token) {
+		if (token) {
 			setToken(token);
-			navigate('/',{replace: true});
+			navigate('/', {replace: true});
 		}
 	});
 
@@ -70,7 +68,7 @@ export default ({setToken}) => {
 						<input
 							type="email"
 							disabled={dataLoading}
-							className={dataLoading?'input-disabled':''}
+							className={dataLoading ? 'input-disabled' : ''}
 							placeholder="Email"
 							required
 							value={data.email}
@@ -84,7 +82,7 @@ export default ({setToken}) => {
 						<input
 							type="password"
 							disabled={dataLoading}
-							className={dataLoading?'input-disabled':''}
+							className={dataLoading ? 'input-disabled' : ''}
 							placeholder="Insira a sua senha"
 							required
 							value={data.password}
