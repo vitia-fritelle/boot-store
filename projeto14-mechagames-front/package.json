@@ -49,10 +49,7 @@
 	},
 	"eslintConfig": {
 		"rules": {
-			"import/no-anonymous-default-export": "off",
-			"indent": [
-				0
-			]
+			"import/no-anonymous-default-export": "off"
 		},
 		"parserOptions": {
 			"sourceType": "module",
