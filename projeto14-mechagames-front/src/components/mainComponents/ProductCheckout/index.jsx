@@ -2,8 +2,8 @@ import ProductImage from '../../../assets/images/product-image.svg';
 import {ProductCheckoutContainer} from './styles';
 import {useState, useEffect} from 'react';
 
-export default ({name, image, value, products, setProducts, identifier}) => {
-	const [inputValue, setInputValue] = useState(1);
+export default ({name, image, value,quantity, products, setProducts, identifier}) => {
+	const [inputValue, setInputValue] = useState(parseInt(quantity));
 
 	function handlePlus() {
 		setInputValue((prevState) => prevState + 1);
