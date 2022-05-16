@@ -51,8 +51,7 @@
 		"rules": {
 			"import/no-anonymous-default-export": "off",
 			"indent": [
-				"error",
-				4
+				0
 			]
 		},
 		"parserOptions": {

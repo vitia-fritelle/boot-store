@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn';
 import ProductPage from './pages/ProductPage';
 import TypeProductPage from './pages/ProductTypePage';
 import Home from './pages/Home';
+import CheckoutPage from './pages/CheckoutPage';
 import UserContext from './contexts/userContext';
 
 export default () => {
@@ -25,6 +26,7 @@ export default () => {
                     path="/products/:typeProduct"
                     element={<TypeProductPage />}
                 />
+                <Route path="/checkout" element={<CheckoutPage />} />
             </Routes>
         </UserContext.Provider>
     );
