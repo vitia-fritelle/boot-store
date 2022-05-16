@@ -22,7 +22,7 @@ export const User = function _(name, email, password, confirmpassword = '') {
     }
 };
 
-export const Chart = function _() {
+export const Cart = function _() {
     this.products = [];
 
     this.addProducts = (...prods) => prods.forEach((prod) => {

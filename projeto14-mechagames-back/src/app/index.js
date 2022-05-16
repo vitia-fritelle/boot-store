@@ -21,15 +21,15 @@ app.use(cors());
 app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     secret: config.secret_key,
     store: MongoStore.create({
         mongoUrl: config.mongodb_url,
         dbName: 'mecha-games',
-        collectionName: 'charts',
+        collectionName: 'carts',
         autoRemove: 'interval',
         autoRemoveInterval: 10,
-        touchAfter: 5,
+        stringify: false,
     }),
 }));
 app.use(routes);

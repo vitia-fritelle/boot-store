@@ -1,20 +1,20 @@
-import validateEmail from '../../services/chartServices';
+import { validateEmail, getSession } from '../../services/cartServices';
 import CustomError from '../../utils';
 
-export const updateChart = async (req, res, next) => {
+export const updateCart = async (req, res, next) => {
     try {
         const token = (
             req
                 .headers
                 .authorization
-                ?.replace('Bearer', '')
+                .replace('Bearer', '')
                 .trim()
         );
-        if (token) {
-            const user = validateEmail(token);
+        if (typeof token === 'string') {
+            const user = await validateEmail(token);
             if (user) {
                 const { products } = req.body;
-                req.session.chart = {
+                req.session.cart = {
                     name: user.name,
                     email: user.email,
                     products,
@@ -39,17 +39,18 @@ export const updateChart = async (req, res, next) => {
     }
 };
 
-export const getChart = async (req, res, next) => {
+export const getCart = async (req, res, next) => {
     try {
         const token = (
             req
                 .headers
                 .authorization
-                ?.replace('Bearer', '')
+                .replace('Bearer', '')
                 .trim()
         );
-        if (token) {
-            res.status(200).send(req.sessions.chart);
+        if (typeof token === 'string') {
+            const cart = await getSession(token);
+            res.status(200).json(cart);
         } else {
             throw new CustomError(
                 403,
