@@ -13,9 +13,9 @@ export default ({ name, email, products }) => {
 	const msg = {
 		to: { email },
 		from: 'mechagamescorporation@gmail.com', // Use the email address or domain you verified above
-		subject: 'Confirmed order on Mecha Games Store',
-		text: 'Thank you for your purchase',
-		html: `<p>Hello <strong>${name}</strong>, thank you for your purchase on Mecha Games Store!</p>
+		subject: 'Your order has been received! :)',
+		text: 'Thank you for your order! :)',
+		html: `<p>Hello <strong>${name}</strong>, thank you for your order on Mecha Games Store!</p>
                 <p>You have purchased the following items:</p>
                 <ul>
                     ${purchashe.map((item) => `<li>${item}</li>`).join('')}
